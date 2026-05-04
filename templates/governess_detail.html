@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}{{ governess.name }}{% endblock %}
+
+{% block content %}
+
+<div class="page-hero page-hero-sm">
+  <div class="page-hero-inner">
+    <a href="{{ url_for('governesses') }}" class="back-link">← Our Governesses</a>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="detail-grid">
+
+      <!-- LEFT: Portrait -->
+      <div class="detail-left">
+        <div class="detail-portrait">
+          <div class="detail-initials">{{ governess.initials }}</div>
+        </div>
+        <div class="detail-sidebar-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rate</span>
+            <span class="meta-value">{{ governess.rate }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Availability</span>
+            <span class="meta-value">{{ governess.availability }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">{{ governess.location }}</span>
+          </div>
+        </div>
+        <a href="{{ url_for('inquire') }}" class="btn btn-primary btn-full mt-32">Inquire about {{ governess.name.split()[0] }}</a>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="detail-right">
+        <p class="eyebrow">{{ governess.year }} · Stanford University</p>
+        <h1 class="detail-name">{{ governess.name }}</h1>
+        <p class="detail-major">{{ governess.major }}</p>
+
+        <p class="detail-bio">{{ governess.bio }}</p>
+
+        <blockquote class="detail-quote">
+          "{{ governess.quote }}"
+        </blockquote>
+
+        <div class="detail-meta-grid">
+          <div class="detail-meta-block">
+            <p class="meta-label">Languages</p>
+            <div class="tag-list mt-12">
+              {% for lang in governess.languages %}
+              <span class="tag tag-gold">{{ lang }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="detail-meta-block">
+            <p class="meta-label">Specialties</p>
+            <div class="tag-list mt-12">
+              {% for s in governess.specialties %}
+              <span class="tag">{{ s }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-cta-strip">
+          <p>To arrange an introduction, please inquire below. We will be in touch within 48 hours.</p>
+          <a href="{{ url_for('inquire') }}" class="btn btn-primary">Begin Inquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OTHER GOVERNESSES -->
+<div class="full-rule"></div>
+<section class="section section-sm">
+  <div class="section-inner">
+    <p class="section-label">Continue Browsing</p>
+    <a href="{{ url_for('governesses') }}" class="btn btn-line">View All Governesses</a>
+  </div>
+</section>
+
+{% endblock %}

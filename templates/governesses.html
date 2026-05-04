@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Our Governesses{% endblock %}
+
+{% block content %}
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Stanford — Governess Directory</p>
+    <h1 class="page-title">
+      Our<br><em>Governesses.</em>
+    </h1>
+    <p class="page-subtitle">Six scholars. Six worlds of knowledge. One purpose.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="directory-grid">
+      {% for g in governesses %}
+      <a href="{{ url_for('governess_detail', gid=g.id) }}" class="directory-card">
+        <div class="directory-portrait">
+          <div class="governess-initials">{{ g.initials }}</div>
+          <div class="governess-portrait-overlay">
+            <span>View Profile</span>
+          </div>
+        </div>
+        <div class="directory-card-body">
+          <h2 class="directory-card-name">{{ g.name }}</h2>
+          <p class="directory-card-meta">{{ g.year }} · {{ g.major }}</p>
+          <p class="directory-card-location">{{ g.location }}</p>
+          <div class="directory-card-tags">
+            {% for lang in g.languages %}
+            <span class="tag">{{ lang }}</span>
+            {% endfor %}
+          </div>
+          <p class="directory-card-rate">{{ g.rate }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="full-rule"></div>
+
+<section class="section section-sm">
+  <div class="section-inner narrow-center">
+    <p class="section-label center">Stanford</p>
+    <h2 class="section-heading center">Are you a Stanford student?</h2>
+    <p class="section-text center mt-24">We are always seeking exceptional scholars to join our programme. If you have the intellectual range, the patience, and the passion to help form a young mind, we want to hear from you.</p>
+    <div class="center mt-40">
+      <a href="{{ url_for('apply') }}" class="btn btn-primary">Apply as a Governess</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

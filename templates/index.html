@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block title %}Aristocratic Tutoring{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Stanford — Governess Programme</p>
+    <h1 class="hero-headline">
+      The art of<br>
+      <em>aristocratic</em><br>
+      tutoring.
+    </h1>
+    <p class="hero-sub">
+      Not test preparation. Not résumé padding.<br>
+      Intellectual formation — the way it was done<br>
+      for every genius in history.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ url_for('governesses') }}" class="btn btn-primary">Browse Governesses</a>
+      <a href="{{ url_for('families') }}" class="btn btn-ghost">For Families</a>
+    </div>
+  </div>
+  <div class="hero-aside">
+    <blockquote class="hero-quote">
+      "Name a genius and find a tutor."
+      <cite>— Erik Hoel, <em>The Intrinsic Perspective</em></cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- RULE -->
+<div class="full-rule"></div>
+
+<!-- PHILOSOPHY -->
+<section class="section philosophy-section">
+  <div class="section-inner">
+    <p class="section-label">Our Philosophy</p>
+    <div class="philosophy-grid">
+      <div class="philosophy-left">
+        <h2 class="section-heading">
+          Every great mind<br>in history had<br><em>a tutor.</em>
+        </h2>
+        <div class="philosophy-body">
+          <p>Marcus Aurelius had seventeen. Bertrand Russell had a revolving door of scholars. John von Neumann's governesses taught him languages before he could write. Max Talmud handed a twelve-year-old Einstein a copy of Euclid — and prefaced his eventual transformation of space and time.</p>
+          <p>The decline of genius coincides precisely with the decline of this tradition. We turned education into mass production. We created a system that sequestered great minds from children, and children from great minds.</p>
+          <p>Governesses.live exists to reverse that — one child at a time.</p>
+        </div>
+        <a href="{{ url_for('families') }}" class="btn btn-line mt-40">Learn our approach</a>
+      </div>
+      <div class="philosophy-right">
+        <div class="ornament">✦</div>
+        <blockquote class="philosophy-quote">
+          "What's necessary for genius historically is early engagement with — not access to — intellectual subjects. And, for humans, engagement is a social phenomenon."
+          <cite>— Erik Hoel</cite>
+        </blockquote>
+        <div class="philosophy-stats">
+          <div class="stat">
+            <span class="stat-number">2σ</span>
+            <span class="stat-label">Bloom's tutoring effect over classroom instruction</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">of classroom peers outperformed by the average tutored student</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL RULE -->
+<div class="full-rule"></div>
+
+<!-- FEATURED GOVERNESSES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header-row">
+      <div>
+        <p class="section-label">Featured Governesses</p>
+        <h2 class="section-heading">Stanford scholars,<br><em>extraordinary</em> teachers.</h2>
+      </div>
+      <a href="{{ url_for('governesses') }}" class="btn btn-line align-bottom">View all six</a>
+    </div>
+
+    <div class="governess-grid mt-64">
+      {% for g in featured %}
+      <a href="{{ url_for('governess_detail', gid=g.id) }}" class="governess-card">
+        <div class="governess-portrait">
+          <div class="governess-initials">{{ g.initials }}</div>
+          <div class="governess-portrait-overlay">
+            <span>View Profile</span>
+          </div>
+        </div>
+        <div class="governess-card-body">
+          <h3 class="governess-card-name">{{ g.name }}</h3>
+          <p class="governess-card-meta">{{ g.year }} · {{ g.major }}</p>
+          <p class="governess-card-languages">{{ g.languages | join(' · ') }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- DARK QUOTE -->
+<section class="dark-quote-section">
+  <div class="dark-quote-inner">
+    <p class="dark-eyebrow">On the decline of genius</p>
+    <blockquote class="dark-quote">
+      "Maybe we don't make Einsteins anymore because we don't make Max Talmuds anymore."
+    </blockquote>
+    <p class="dark-attribution">Erik Hoel — <em>Why We Stopped Making Einsteins</em>, 2022</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">The Process</p>
+    <h2 class="section-heading">How it works.</h2>
+
+    <div class="steps-grid mt-64">
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3 class="step-title">Browse & Discover</h3>
+        <p class="step-text">Explore our curated directory of Stanford governesses. Each profile includes languages, specialties, teaching philosophy, and availability.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3 class="step-title">Inquire</h3>
+        <p class="step-text">Tell us about your child — their age, current interests, and what you hope for their intellectual life. We will match you with a governess whose approach aligns with your vision.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3 class="step-title">Begin</h3>
+        <p class="step-text">An ongoing relationship guided not by a curriculum, but by your child's emerging curiosity. Not test preparation. The formation of a mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL RULE -->
+<div class="full-rule"></div>
+
+<!-- FINAL CTA -->
+<section class="section cta-section">
+  <div class="section-inner cta-inner">
+    <h2 class="cta-heading">
+      Begin the<br><em>inquiry.</em>
+    </h2>
+    <div class="cta-body">
+      <p>Every great education begins with a single introduction. Tell us about your family, and we will arrange a conversation with the governess who is right for your child.</p>
+      <div class="cta-actions mt-40">
+        <a href="{{ url_for('inquire') }}" class="btn btn-primary">Inquire Now</a>
+        <a href="{{ url_for('apply') }}" class="btn btn-line">Stanford students — Apply</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

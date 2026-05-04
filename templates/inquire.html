@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}Inquire{% endblock %}
+
+{% block content %}
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">For Families</p>
+    <h1 class="page-title">
+      Begin the<br><em>inquiry.</em>
+    </h1>
+    <p class="page-subtitle max-560">Tell us about your child. We will find the governess who is right for them.</p>
+  </div>
+</div>
+
+<div class="full-rule"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="form-layout">
+      <div class="form-aside">
+        <p class="section-label">What happens next</p>
+        <ul class="criteria-list">
+          <li>We review your inquiry within 24 hours</li>
+          <li>A member of our team contacts you to arrange a brief call</li>
+          <li>We suggest one or two governesses whose profile matches your needs</li>
+          <li>You meet them; if the chemistry is right, you begin</li>
+        </ul>
+        <div class="form-aside-note mt-40">
+          <blockquote class="aside-quote">
+            "Think of how influential the in-his-twenties Max Talmud must have seemed to a preteen Einstein."
+            <cite>— Erik Hoel</cite>
+          </blockquote>
+        </div>
+      </div>
+
+      <form class="form" method="POST" action="{{ url_for('inquire') }}">
+        <div class="form-section-title">Your Family</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="parent_name">Your Name</label>
+            <input class="form-input" type="text" id="parent_name" name="parent_name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="location">City & State</label>
+            <input class="form-input" type="text" id="location" name="location" placeholder="e.g. San Francisco, CA">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone (optional)</label>
+            <input class="form-input" type="tel" id="phone" name="phone">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <div class="form-section-title">Your Child</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="child_name">Child's First Name</label>
+            <input class="form-input" type="text" id="child_name" name="child_name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="child_age">Age</label>
+            <input class="form-input" type="text" id="child_age" name="child_age" placeholder="e.g. 8">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="interests">What captivates your child right now?</label>
+          <textarea class="form-textarea" id="interests" name="interests" rows="4" placeholder="What subjects, books, questions, or obsessions animate them? What do they reach for on a Sunday afternoon?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="current_education">Current Educational Approach</label>
+          <select class="form-select" id="current_education" name="current_education">
+            <option value="">Select</option>
+            <option>Private school</option>
+            <option>Public school</option>
+            <option>Homeschool</option>
+            <option>Unschool</option>
+            <option>Mixed / other</option>
+          </select>
+        </div>
+
+        <div class="form-divider"></div>
+        <div class="form-section-title">What You Hope For</div>
+
+        <div class="form-group">
+          <label class="form-label" for="goals">What do you hope a governess will do for your child?</label>
+          <textarea class="form-textarea" id="goals" name="goals" rows="5" placeholder="Not in terms of test scores or grades — in terms of the kind of person, thinker, and reader you hope they become."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="languages_desired">Languages you would like your child to learn</label>
+          <input class="form-input" type="text" id="languages_desired" name="languages_desired" placeholder="e.g. French, Mandarin, Latin — or leave blank if open">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subjects_desired">Subjects or domains of particular interest</label>
+          <input class="form-input" type="text" id="subjects_desired" name="subjects_desired" placeholder="e.g. Mathematics, Classical Literature, Music, Philosophy, Science">
+        </div>
+
+        <div class="form-divider"></div>
+        <div class="form-section-title">Practicalities</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="schedule">Preferred Schedule</label>
+            <select class="form-select" id="schedule" name="schedule">
+              <option value="">Select</option>
+              <option>Weekday mornings</option>
+              <option>Weekday afternoons</option>
+              <option>Weekends</option>
+              <option>Intensive summer programme</option>
+              <option>Year-round, flexible</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="format">Format</label>
+            <select class="form-select" id="format" name="format">
+              <option value="">Select</option>
+              <option>In-person (your home)</option>
+              <option>Remote (video)</option>
+              <option>Live-in governess</option>
+              <option>Open to all</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Anything else you would like us to know</label>
+          <textarea class="form-textarea" id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <div class="form-submit mt-48">
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+          <p class="form-submit-note">We respond within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

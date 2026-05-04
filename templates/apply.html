@@ -34,99 +34,24 @@
       </div>
 
       <form class="form" method="POST" action="{{ url_for('apply') }}">
-        <div class="form-section-title">Personal</div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="first_name">First Name</label>
-            <input class="form-input" type="text" id="first_name" name="first_name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="last_name">Last Name</label>
-            <input class="form-input" type="text" id="last_name" name="last_name" required>
-          </div>
+        <div class="form-group">
+          <label class="form-label" for="full_name">Full Name</label>
+          <input class="form-input" type="text" id="full_name" name="full_name" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="email">Stanford Email Address</label>
-          <input class="form-input" type="email" id="email" name="email" placeholder="you@stanford.edu" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="year">Year</label>
-            <select class="form-select" id="year" name="year">
-              <option value="">Select</option>
-              <option>Freshman</option>
-              <option>Sophomore</option>
-              <option>Junior</option>
-              <option>Senior</option>
-              <option>Graduate Student</option>
-              <option>PhD Candidate</option>
-              <option>Postdoctoral Fellow</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="major">Major / Department</label>
-            <input class="form-input" type="text" id="major" name="major" required>
-          </div>
-        </div>
-
-        <div class="form-divider"></div>
-        <div class="form-section-title">Languages & Expertise</div>
-
-        <div class="form-group">
-          <label class="form-label" for="languages">Languages (include proficiency level)</label>
-          <input class="form-input" type="text" id="languages" name="languages" placeholder="e.g. French (native), Latin (reading), German (conversational)" required>
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="specialties">Areas of Expertise</label>
-          <input class="form-input" type="text" id="specialties" name="specialties" placeholder="e.g. Mathematics, Classical Literature, Piano, History of Science">
+          <label class="form-label" for="linkedin">LinkedIn Profile URL</label>
+          <input class="form-input" type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/..." required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="experience">Experience with Children</label>
-          <textarea class="form-textarea" id="experience" name="experience" rows="4" placeholder="Describe any teaching, tutoring, mentoring, or childcare experience you have had."></textarea>
-        </div>
-
-        <div class="form-divider"></div>
-        <div class="form-section-title">Philosophy</div>
-
-        <div class="form-group">
-          <label class="form-label" for="philosophy">Your Teaching Philosophy</label>
-          <textarea class="form-textarea" id="philosophy" name="philosophy" rows="5" placeholder="How do you think about educating a young child? What do you believe they need that the school system does not provide?"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="lesson">Describe a lesson you would be proud to give</label>
-          <textarea class="form-textarea" id="lesson" name="lesson" rows="5" placeholder="Describe a session — what subject, what approach, what materials — that would exemplify your ideal of aristocratic tutoring."></textarea>
-        </div>
-
-        <div class="form-divider"></div>
-        <div class="form-section-title">Availability</div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="availability">General Availability</label>
-            <select class="form-select" id="availability" name="availability">
-              <option value="">Select</option>
-              <option>Full-time (40+ hrs/week)</option>
-              <option>Part-time (10–20 hrs/week)</option>
-              <option>Weekends only</option>
-              <option>Summer only</option>
-              <option>Remote only</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="location">Your Location</label>
-            <input class="form-input" type="text" id="location" name="location" placeholder="City, State">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="rate">Desired Hourly Rate (USD)</label>
-          <input class="form-input" type="text" id="rate" name="rate" placeholder="e.g. $85">
+          <label class="form-label" for="interest">Tell us why you are interested</label>
+          <textarea class="form-textarea" id="interest" name="interest" rows="5" required></textarea>
         </div>
 
         <div class="form-submit mt-48">

@@ -18,7 +18,7 @@
       for every genius in history.
     </p>
     <div class="hero-actions">
-      <a href="{{ url_for('governesses') }}" class="btn btn-primary">Browse Governesses</a>
+      <a href="{{ url_for('apply') }}" class="btn btn-primary">Apply as a Governess</a>
       <a href="{{ url_for('families') }}" class="btn btn-ghost">For Families</a>
     </div>
   </div>
@@ -62,7 +62,7 @@
           </div>
           <div class="stat">
             <span class="stat-number">98%</span>
-            <span class="stat-label">of classroom peers outperformed by the average tutored student</span>
+            <span class="stat-label">of classroom peers are outperformed by the average tutored student</span>
           </div>
         </div>
       </div>
@@ -72,37 +72,6 @@
 
 <!-- FULL RULE -->
 <div class="full-rule"></div>
-
-<!-- FEATURED GOVERNESSES -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-header-row">
-      <div>
-        <p class="section-label">Featured Governesses</p>
-        <h2 class="section-heading">Stanford scholars,<br><em>extraordinary</em> teachers.</h2>
-      </div>
-      <a href="{{ url_for('governesses') }}" class="btn btn-line align-bottom">View all six</a>
-    </div>
-
-    <div class="governess-grid mt-64">
-      {% for g in featured %}
-      <a href="{{ url_for('governess_detail', gid=g.id) }}" class="governess-card">
-        <div class="governess-portrait">
-          <div class="governess-initials">{{ g.initials }}</div>
-          <div class="governess-portrait-overlay">
-            <span>View Profile</span>
-          </div>
-        </div>
-        <div class="governess-card-body">
-          <h3 class="governess-card-name">{{ g.name }}</h3>
-          <p class="governess-card-meta">{{ g.year }} · {{ g.major }}</p>
-          <p class="governess-card-languages">{{ g.languages | join(' · ') }}</p>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
 
 <!-- DARK QUOTE -->
 <section class="dark-quote-section">

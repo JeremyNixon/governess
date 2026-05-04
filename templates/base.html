@@ -15,10 +15,10 @@
   <nav id="nav">
     <div class="nav-inner">
       <a href="{{ url_for('index') }}" class="nav-logo">
+        <img src="{{ url_for('static', filename='logo-sun.svg') }}" alt="" class="brand-sun" aria-hidden="true">
         Governesses<span class="nav-tld">.live</span>
       </a>
       <div class="nav-links">
-        <a href="{{ url_for('governesses') }}">Our Governesses</a>
         <a href="{{ url_for('families') }}">For Families</a>
         <a href="{{ url_for('apply') }}">Apply</a>
         <a href="{{ url_for('inquire') }}" class="nav-cta">Inquire</a>
@@ -28,7 +28,6 @@
       </button>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="{{ url_for('governesses') }}">Our Governesses</a>
       <a href="{{ url_for('families') }}">For Families</a>
       <a href="{{ url_for('apply') }}">Apply</a>
       <a href="{{ url_for('inquire') }}">Inquire</a>
@@ -59,7 +58,6 @@
       <nav class="footer-nav">
         <div class="footer-col">
           <span class="footer-col-label">Programme</span>
-          <a href="{{ url_for('governesses') }}">Our Governesses</a>
           <a href="{{ url_for('families') }}">For Families</a>
           <a href="{{ url_for('inquire') }}">Inquire</a>
         </div>
